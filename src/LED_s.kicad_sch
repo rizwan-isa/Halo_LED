@@ -6,8 +6,8 @@
 	(paper "A5")
 	(title_block
 		(title "LED")
-		(date "%%date%%")
-		(rev "%%version%%")
+		(date "2026-07-03 23:14:13")
+		(rev "af6fbf3")
 		(company "Company: Engineering Services LTD")
 		(comment 1 "Drawn by Rizwan Isa")
 		(comment 2 "Customer: Serenyc")

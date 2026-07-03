@@ -9,7 +9,7 @@
 	(paper "A5")
 	(title_block
 		(title "LED")
-		(date "%%date%%")
+		(date "2026-07-03 23:14:13")
 		(rev "bdd8a53")
 		(company "Engineering Services")
 		(comment 1 "Drawn By Rizwan Isa")
@@ -3459,7 +3459,7 @@
 			(justify left top)
 		)
 	)
-	(gr_text "0.2000 mm"
+	(gr_text "0.2 mm"
 		(at 111.649995 79.8 0)
 		(layer "Cmts.User")
 		(uuid "13c5d959-bc7a-40aa-86ad-adc66c818663")
@@ -3663,7 +3663,7 @@
 			(justify left top)
 		)
 	)
-	(gr_text "10.0000 mm x 10.0000 mm"
+	(gr_text "10 mm x 10 mm"
 		(at 52.55 75.843 0)
 		(layer "Cmts.User")
 		(uuid "3e3b77ec-6f71-49ad-943d-6c0e3fc198ac")
@@ -3999,7 +3999,7 @@
 			(justify left top)
 		)
 	)
-	(gr_text "0.2000 mm / 0.1500 mm"
+	(gr_text "0.2 mm / 0.15 mm"
 		(at 52.55 79.8 0)
 		(layer "Cmts.User")
 		(uuid "906863b0-2445-417f-accb-9fc7e1a8ff01")
@@ -4119,7 +4119,7 @@
 			(justify left top)
 		)
 	)
-	(gr_text "1.2000 mm"
+	(gr_text "1.2 mm"
 		(at 111.649995 71.886 0)
 		(layer "Cmts.User")
 		(uuid "b2156487-ab51-41ff-9085-15d49a633b94")

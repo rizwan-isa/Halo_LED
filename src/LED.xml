@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/LED/src/LED.kicad_sch</source>
-    <date>2026-07-03T20:38:11+0000</date>
+    <source>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/Halo_LED/src/LED.kicad_sch</source>
+    <date>Date1</date>
     <tool>Eeschema 9.0.7+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>LED</title>
         <company>Company: Engineering Services LTD</company>
-        <rev/>
-        <date>2026-07-03 21:14:48</date>
+        <rev>af6fbf3</rev>
+        <date>Date2</date>
         <source>LED.kicad_sch</source>
         <comment number="1" value="Drawn by Rizwan Isa"/>
         <comment number="2" value="Customer: Serenyc"/>
@@ -26,8 +26,8 @@
       <title_block>
         <title>LED</title>
         <company>Company: Engineering Services LTD</company>
-        <rev/>
-        <date>2026-07-03 21:14:48</date>
+        <rev>af6fbf3</rev>
+        <date>Date2</date>
         <source>LED_s.kicad_sch</source>
         <comment number="1" value="Drawn by Rizwan Isa"/>
         <comment number="2" value="Customer: Serenyc"/>
@@ -435,7 +435,7 @@
   </libparts>
   <libraries>
     <library logical="01_LED_schematic_symbols">
-      <uri>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/LED/src/symbols/LED_schematic_symbols.kicad_sym</uri>
+      <uri>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/Halo_LED/src/symbols/LED_schematic_symbols.kicad_sym</uri>
     </library>
     <library logical="Connector">
       <uri>/usr/share/kicad/symbols/Connector.kicad_sym</uri>
