@@ -1,0 +1,79 @@
+name: "Init Project (from template)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Project base name (default: repository name)"
+        required: false
+        type: string
+        default: ""
+      pcba:
+        description: "PCBA number (e.g. ES-A00098) (default: TBD)"
+        required: false
+        type: string
+        default: ""
+      pcb:
+        description: "PCB number (e.g. 3E-000144) (default: TBD)"
+        required: false
+        type: string
+        default: ""
+      dry_run:
+        description: "If true, prints what would change but does not commit/push"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  init:
+    if: github.repository != 'rizwan-isa/KiCad-Template'
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: ${{ inputs.name || github.event.repository.name }}
+      PCBA_NUMBER: ${{ inputs.pcba || 'TBD' }}
+      PCB_NUMBER: ${{ inputs.pcb || 'TBD' }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run template initializer
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PROJECT_NAME=$PROJECT_NAME"
+          echo "PCBA_NUMBER=$PCBA_NUMBER"
+          echo "PCB_NUMBER=$PCB_NUMBER"
+          echo "DRY_RUN=${{ inputs.dry_run }}"
+
+          args=(--name "$PROJECT_NAME" --pcba "$PCBA_NUMBER" --pcb "$PCB_NUMBER")
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+
+          python3 scripts/init_project.py "${args[@]}"
+
+      - name: Commit and push changes
+        if: ${{ inputs.dry_run != true }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Initialize project: ${PROJECT_NAME}"
+          git push origin HEAD

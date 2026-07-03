@@ -1,0 +1,399 @@
+# This workflow generates documentation (PDFs, interactive BOMs, board images). The
+# The version number and date of the design is automatically updated in the schematic
+# file and on the PCB. The version number is set via an environment variable
+# and by default is `pre-release` since this runs outside of the release process
+# so there's no formal release number to use.
+
+# To use this workflow in your own repo you need to edit the environment variables in the env: section
+# below.
+
+name: "Generate Review Datapack"
+
+on:
+  # push:
+  #   branches:
+  #     - prototype
+  workflow_dispatch:
+
+jobs:
+  # Generate outputs for review, prototyping and manufacturing
+  GRD:
+    env:
+      # Set this to the base filename of your project.
+      # Set this as the Assembly number
+      # Set this as the PCB number
+      # Set this to your local timezone. See https://www.wikiwand.com/en/List_of_tz_database_time_zones for valid strings.
+      Timezone: Europe/London
+      # Set this to the output folder for all of the generated files. Unless you have a very
+      # good reason to change this you should leave it as KiBotOutput.
+      # kibot generated files will be temprarly stored in this folder
+      # act will move them to the ReviewDatapack folder later
+      KibotOutputFolder: KiBotOutput
+      # Set this to the general review datapack folder this is where all reviews datapacks will be placed
+      # we should probably aim to keep two review packs the current one and the n-1 review pack
+      # the output of this folder will be uploaded to git
+      #ActOutFolder: ReviewDatapack
+
+    runs-on: ubuntu-latest
+    #container: ghcr.io/inti-cmnb/kicad7_auto_full:latest
+
+    # These are all the steps that generate the files.
+    steps:
+      # Check out the files
+      - uses: actions/checkout@v4
+
+      - name: Load project config (project.env)
+        id: proj
+        shell: bash
+        run: |
+          set -euo pipefail
+          CFG="project.env"
+          if [[ ! -f "$CFG" ]]; then
+            echo "::error::Missing $CFG. Run the 'Init Project' workflow once, or create project.env in the repo root."
+            exit 1
+          fi
+
+          # shellcheck disable=SC1090
+          source "$CFG"
+
+          : "${BaseFileName:?BaseFileName missing in $CFG}"
+          : "${PCBANumber:?PCBANumber missing in $CFG}"
+          : "${PCBNumber:?PCBNumber missing in $CFG}"
+
+          echo "base=$BaseFileName" >> "$GITHUB_OUTPUT"
+          echo "pcba=$PCBANumber" >> "$GITHUB_OUTPUT"
+          echo "pcb=$PCBNumber" >> "$GITHUB_OUTPUT"
+
+          echo "BaseFileName=$BaseFileName" >> "$GITHUB_ENV"
+          echo "PCBANumber=$PCBANumber" >> "$GITHUB_ENV"
+          echo "PCBNumber=$PCBNumber" >> "$GITHUB_ENV"
+
+      - name: Display Commit Information
+        id: commit_sha
+        run: |
+          echo "sha=$(echo ${GITHUB_SHA::7})" >> $GITHUB_OUTPUT
+
+      # Get the current date and time, in the timezone specified above, for use later.
+      - name: Get current date and time
+        id: date
+        run: echo "date=$(TZ='${{ env.Timezone }}' date +'%Y-%m-%d %T')" >> $GITHUB_OUTPUT
+
+      # Get the current date
+      - name: Get current date only
+        id: date_only
+        run: echo "date_only=$(TZ='${{ env.Timezone }}' date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      # Do a string replacement in the schematic file to set the version and date.
+      # Any instance of %%version%% in the schematic gets replaced with the release version.
+      # Any instance of %%date%% in the schematic gets replaced with the release date and time.
+
+      - name: Find and replace in .kicad_sch files
+        run: |
+          for file in $(find src -type f -name '*.kicad_sch'); do
+              echo "Processing $file"
+              sed -i "s/%%version%%/${{ steps.commit_sha.outputs.sha }}/g" "$file"
+          done
+
+      - name: Find and replace in .kicad_sch files
+        run: |
+          for file in $(find src -type f -name '*.kicad_sch'); do
+              echo "Processing $file"
+              sed -i "s/%%date%%/${{ steps.date.outputs.date }}/g" "$file"
+          done
+
+      - name: Set schematic date
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: "src/${{ steps.proj.outputs.base }}.kicad_sch"
+          find: "%%date%%"
+          replace: ${{ steps.date.outputs.date }}
+
+      # Do a string replacement in the PCB file to set the version and date.
+      # Any instance of %%version%% in the PCB gets replaced with the release version.
+      # Any instance of %%date%% in the PCB gets replaced with the release date and time.
+      - name: Set Kicad Sheet and PCB version
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: "src/${{ steps.proj.outputs.base }}.kicad_pcb"
+          find: "%%version%%"
+          replace: ${{ steps.commit_sha.outputs.sha }}
+
+      - name: Set PCB date only
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: "src/${{ steps.proj.outputs.base }}.kicad_pcb"
+          find: "%%date_only%%"
+          replace: ${{ steps.date_only.outputs.date_only }}
+
+      - name: Set Kicad Sheet date and time
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: "src/${{ steps.proj.outputs.base }}.kicad_pcb"
+          find: "%%date%%"
+          replace: ${{ steps.date.outputs.date }}
+
+      # Replace the PCB order number place holder with the JLC pcb identifier JLCJLCJLCJLC
+      # For manufacturing releases this could be changed to the manufacturer preferences
+      - name: Set PCB date
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: "src/${{ steps.proj.outputs.base }}.kicad_pcb"
+          find: "%%JLCOrdNr%%"
+          replace: "JLCJLCJLCJLC"
+
+      # Actually run KiBot to generate all the files. The KiBot script used is
+      # in the .kibot/release.kibot.yaml folder.
+      - name: Generate schematic documentation
+        #uses: INTI-CMNB/KiBot@v2_k7_1_6_5
+        #uses: INTI-CMNB/KiBot@8a00b90 #v2_dk7 on 05/09/2024
+        #uses: INTI-CMNB/KiBot@v2_dk7
+        #uses: INTI-CMNB/KiBot@v2_k7
+        #uses: INTI-CMNB/KiBot@8a00b90949bad65e36658d4551820edee9c0f5d6 #v2_k7 on 05/09/2024
+        #uses: INTI-CMNB/KiBot@v2_k7_1_7_0
+        # uses: INTI-CMNB/KiBot@v2_k7_1_8_3
+        uses: INTI-CMNB/KiBot@v2_k9
+        #https://cicube.io/workflow-hub/kibot-github-action/
+        with:
+          #aditional arguments, check kibot command line arguments at https://kibot.readthedocs.io/en/master/usage.html
+          # print logs to file rather than console
+          additional_args: "--banner 7 2>&1 | tee kibot_log.log" #1> kibot_log_brief.log 2> kibot_log_full.log
+          config: src/config.kibot.yaml
+          dir: ${{ env.KibotOutputFolder }}
+          schema: src/${{ steps.proj.outputs.base }}.kicad_sch
+          board: src/${{ steps.proj.outputs.base }}.kicad_pcb
+          #cache3D: YES
+          #targets: 'fabrication'
+          #variant: 'default'
+          verbose: 0 #max 4
+
+      ### Process KibotOutput files and create the Review Output Datapack ###
+      # Define a review datapack folder variable so that we do not have to constantly use env and staps variable - makes the script easier to follow understand
+      - name: define Review Datapack Folder
+        id: drdf
+        run: echo "drdf=ReviewDatapack/Datapack_${{steps.proj.outputs.base}}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}" >> $GITHUB_OUTPUT
+      # Create a the review datapack folder where to store the revew outputs
+      - name: Create Revew Datapack Folder for this run
+        id: crdf
+        run: sudo mkdir -p ${{ steps.drdf.outputs.drdf }}
+      # Copy the schematic into the review output folder
+      - name: Copy schematic into review output folder.
+        id: cp_sch
+        run: sudo cp -r ${{env.KibotOutputFolder}}/*_schematic.pdf ${{ steps.drdf.outputs.drdf }}
+      # Copy the iBOM into the review output folder -> Moved to PCBA folder.
+      # - name: Copy iBOM into review output folder.
+      #   id: cp_ibom
+      #   run: sudo cp -r ${{env.KibotOutputFolder}}/BoMs/*ibom* ${{ steps.drdf.outputs.drdf }}
+      # Copy the onleline_full csv bom into the review output folder
+      - name: Copy oneline CSV full bom into review output folder.
+        id: cp_csv_olf
+        run: sudo cp -r ${{env.KibotOutputFolder}}/BoMs/*oneline_full* ${{ steps.drdf.outputs.drdf }}
+      # Copy the 2D folder into the review output folder
+      - name: Copy 2D folder into review output folder.
+        id: cp_2D
+        run: sudo cp -r ${{env.KibotOutputFolder}}/2D ${{ steps.drdf.outputs.drdf }}
+      # Copy the Design Files folder into the review output folder
+      # In the future we should copy the full design notes compiled as html into this folder
+      - name: Copy DesignFiles folder into review output folder.
+        id: cp_DF
+        run: sudo cp -r docs/DesignFiles ${{ steps.drdf.outputs.drdf }}
+      # Copy the Design Review file into the review output folder
+      - name: Copy Review Form folder into review output folder.
+        id: cp_drf
+        run: sudo cp docs/II_Review_Form_*.xlsx ${{ steps.drdf.outputs.drdf }}/II_Review_Form_${{steps.proj.outputs.base}}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}.xlsx
+
+      # Define PCBA folder - pcba output files will be placed in this folder
+      - name: define PCBA Folder
+        id: pcbaf
+        run: echo "pcbaf=${{ steps.drdf.outputs.drdf }}/PCBA_${{steps.proj.outputs.base}}_${{ steps.proj.outputs.pcba }}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}" >> $GITHUB_OUTPUT
+      # Define the PCBA zip archive name
+      - name: define PCBA archive name
+        id: pcba
+        run: echo "pcba=${{ steps.proj.outputs.base }}_${{ steps.proj.outputs.pcb }}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}_PCB_gerbers.zip" >> $GITHUB_OUTPUT
+
+      # Create PCB datapack - we only need to zip the gerbers add drill files and place them in PCBA folder
+      - name: Create PCB Datapack and add gerber files.
+        id: pcb_dpk
+        run: |
+          sudo mkdir -p ${{ steps.pcbaf.outputs.pcbaf }}/ && \
+          sudo zip -rj ${{ steps.pcbaf.outputs.pcbaf }}/${{ steps.pcba.outputs.pcba }} \
+                       ${{env.KibotOutputFolder}}/gerbers
+
+      # Add drill files to the PCB datapack archive
+      - name: Add drill files to the PCB Datapack archive.
+        id: pcb_add_drill
+        run: |
+          sudo zip -rj ${{ steps.pcbaf.outputs.pcbaf }}/${{ steps.pcba.outputs.pcba }} \
+                       ${{env.KibotOutputFolder}}/drill/*.gbr
+
+      # Copy netlist file into the PCBA Folder
+      - name: Copy netlist file into PCBA folder.
+        id: cp_nlf
+        run: sudo cp -r ${{env.KibotOutputFolder}}/netlist/* ${{ steps.pcbaf.outputs.pcbaf }}
+
+      # Copy bom files into the PCBA Folder inclue the ibom but not the oneline_full
+      - name: Copy bom file into PCBA folder.
+        id: cp_boms
+        run: |
+          sudo cp -r ${{env.KibotOutputFolder}}/BoMs/*bom.* ${{ steps.pcbaf.outputs.pcbaf }} && \
+          sudo cp    ${{env.KibotOutputFolder}}/BoMs/*_bom_oneline.csv ${{ steps.pcbaf.outputs.pcbaf }}
+
+      # Copy position files into the PCBA Folder
+      - name: Copy position file into PCBA folder.
+        id: cp_pos
+        run: sudo cp -r ${{env.KibotOutputFolder}}/position/* ${{ steps.pcbaf.outputs.pcbaf }}
+
+      # Copy assembly files into the PCBA Folder
+      - name: Copy assembly file into PCBA folder.
+        id: cp_ass
+        run: sudo cp -r ${{env.KibotOutputFolder}}/*_assembly.pdf ${{ steps.pcbaf.outputs.pcbaf }}
+
+      # Copy Conformal files into the PCBA Folder
+      - name: Copy Conformal file into PCBA folder.
+        id: cp_conf
+        run: sudo cp -r ${{env.KibotOutputFolder}}/*_conformal.* ${{ steps.pcbaf.outputs.pcbaf }}
+
+      # Copy 3D folder/files into the PCBA Folder
+      - name: Copy 3D folder/files into PCBA folder.
+        id: cp_3df
+        run: sudo cp -r ${{env.KibotOutputFolder}}/3D ${{ steps.pcbaf.outputs.pcbaf }}
+
+      ### JLCPCB Production Files (straight-to-upload, auto-fixed headers) ###
+      - name: define JLCPCB Folder
+        id: jlcf
+        run: echo "jlcf=${{ steps.drdf.outputs.drdf }}/JLCPCB_${{env.BaseFileName}}_${{ env.PCBNumber }}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}" >> $GITHUB_OUTPUT
+
+      - name: Create JLCPCB Folder
+        run: sudo mkdir -p ${{ steps.jlcf.outputs.jlcf }}
+
+      # Copy and clean JLCPCB bom
+      - name: Copy and clean JLCPCB BOM
+        run: |
+          BOM_FILE=$(ls ${{env.KibotOutputFolder}}/JLCPCBY/*_bom* 2>/dev/null | head -1 || true)
+
+          if [ -n "$BOM_FILE" ]; then
+            NEW_NAME="${{ env.BaseFileName }}_${{ steps.commit_sha.outputs.sha }}_JLC_bom.csv"
+
+            sudo cp "$BOM_FILE" ${{ steps.jlcf.outputs.jlcf }}/"$NEW_NAME"
+            sudo sed -i '/^Project info:/,$d' ${{ steps.jlcf.outputs.jlcf }}/"$NEW_NAME"
+
+            echo "✓ Copied and cleaned BOM as: $NEW_NAME"
+          fi
+
+      - name: Copy JLCPCB CPL file
+        run: |
+          CPL_FILE=$(ls ${{env.KibotOutputFolder}}/JLCPCB/*cpl*.csv 2>/dev/null | head -1 || true)
+          [ -n "$CPL_FILE" ] && sudo cp "$CPL_FILE" ${{ steps.jlcf.outputs.jlcf }}/${{ env.BaseFileName }}_${{ steps.commit_sha.outputs.sha }}_JLC_cpl.csv
+
+      # Copy JLCPCB Gerber zip and rename it
+      - name: Copy JLCPCB Gerber zip
+        run: |
+          ZIP_FILE=$(ls ${{env.KibotOutputFolder}}/JLCPCB/*.zip 2>/dev/null | head -1 || true)
+
+          if [ -n "$ZIP_FILE" ]; then
+            NEW_NAME="${{ env.BaseFileName }}_${{ steps.commit_sha.outputs.sha }}_JLC_gerbers.zip"
+            sudo cp "$ZIP_FILE" ${{ steps.jlcf.outputs.jlcf }}/"$NEW_NAME"
+            echo "✓ Copied Gerber zip as: $NEW_NAME"
+          else
+            echo "WARNING: No zip file found in JLCPCB folder"
+          fi
+
+      ## Kicad Project Folder ##
+
+      # Define the KiCad Project folder
+      - name: define Review Datapack Folder
+        id: dkpf
+        run: echo "dkpf=${{ steps.drdf.outputs.drdf }}/KiCad_Project_${{steps.proj.outputs.base}}_${{ steps.commit_sha.outputs.sha }}"  >> $GITHUB_OUTPUT
+      # Create the kicad project folder
+      - name: Create Kicad Project Folder
+        id: ckpf
+        run: sudo mkdir -p ${{ steps.dkpf.outputs.dkpf }}
+      # # Copy the Kicad Project into the project folder
+      # - name: Copy Kicad Project.
+      #   id: cp_kp
+      #   run: sudo cp -r ${{env.KibotOutputFolder}}/kicad_project/* ${{ steps.dkpf.outputs.dkpf }}
+      # Copy the Kicad Project archive into the project folder
+      - name: Copy Kicad Project.
+        id: cp_kpa
+        run: sudo cp -r ${{env.KibotOutputFolder}}/archive/* ${{ steps.dkpf.outputs.dkpf }}
+
+      ### Report Folder ###
+      ## Create report folder and copy erc/drc/info/drill/runlog files reports into it.
+      # Create report folder
+      - name: Create Report Folder
+        id: crf
+        run: sudo mkdir -p ${{ steps.drdf.outputs.drdf }}/Reports
+      # Copy erc/drc/info/log files into reports folder
+      - name: Copy erc drc/erc files into Reports folder.
+        id: cp_edil
+        run: sudo cp -r ${{env.KibotOutputFolder}}/*.txt ${{ steps.drdf.outputs.drdf }}/Reports
+      # Copy drill report files into reports folder
+      - name: Copy drill report file into Reports folder.
+        id: cp_dr
+        run: sudo cp -r ${{env.KibotOutputFolder}}/drill/*.txt ${{ steps.drdf.outputs.drdf }}/Reports
+      # Copy kibot run log files into reports folder
+      - name: Copy kibot run log file into Reports folder.
+        id: cp_kibot_log
+        run: sudo cp -r kibot_log.log ${{ steps.drdf.outputs.drdf }}/Reports
+
+      ### Create README html page
+
+      # Copy the datapack readme html into the output folder.
+      - name: Copy datapack_README.html file into output folder.
+        id: cp_ihtml
+        run: sudo cp docs/cicd/datapack_README.html ${{ steps.drdf.outputs.drdf }}/README.html
+
+      # Copy the assembly instructions readme html into the assembly folder.
+      - name: Copy pcba_README.html file into assembly folder.
+        id: cp_ahtml
+        run: sudo cp docs/cicd/pcba_README.html ${{ steps.pcbaf.outputs.pcbaf }}/README.html
+
+      # Replace variables in the HTML files.
+      - name: Find GitID and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name '*EADME.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%GitID%%/${{ steps.commit_sha.outputs.sha }}/g" "$file"
+          done
+
+      - name: Find PrID and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name '*EADME.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%PrID%%/${{ steps.proj.outputs.base }}/g" "$file"
+          done
+
+      - name: Find date_only and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name '*EADME.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%date_only%%/${{ steps.date_only.outputs.date_only }}/g" "$file"
+          done
+
+      - name: Find date and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name '*EADME.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%date%%/${{ steps.date.outputs.date }}/g" "$file"
+          done
+
+      - name: Find PCBANr and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name 'README.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%PCBANr%%/${{ steps.proj.outputs.pcba }}/g" "$file"
+          done
+
+      - name: Find PCBNr and replace in README.html files
+        run: |
+          for file in $(find ${{ steps.drdf.outputs.drdf }} -type f -name 'README.html'); do
+              echo "Processing $file"
+              sudo sed -i "s/%%PCBNr%%/${{ steps.proj.outputs.pcb }}/g" "$file"
+          done
+
+      ## Pack and upload the revew folder ###
+      - name: Archive production artifacts
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Datapack_${{steps.proj.outputs.base}}_${{ steps.commit_sha.outputs.sha }}_${{ steps.date_only.outputs.date_only }}
+          path: ReviewDatapack/
