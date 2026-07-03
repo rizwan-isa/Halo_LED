@@ -12,7 +12,7 @@ outputs:
       #zoom: 9
       # height: 2000
       # width: 3200
-      zoom: 1
+      zoom: -1
       height: 1200
       width: 1800
       #ray_tracing: true
@@ -28,7 +28,7 @@ outputs:
     type: render_3d
     dir: "3D"
     options:
-      zoom: 1
+      zoom: -1
       height: 1200
       width: 1800
       #ray_tracing: true
@@ -43,7 +43,7 @@ outputs:
     type: render_3d
     dir: "3D"
     options:
-      zoom: 1
+      zoom: -1
       height: 1600
       width: 2100
       rotate_x: 3
