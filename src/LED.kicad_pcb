@@ -170,7 +170,7 @@
 			)
 		)
 		(property "Value" "WS2812B-2020"
-			(at 2.05 7.95 90)
+			(at -8.65 2.7 90)
 			(layer "F.Fab")
 			(uuid "c7efa7ab-db97-4050-9819-65e1dfab122c")
 			(effects
@@ -180,7 +180,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -202,6 +202,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "5962-XL-1615RGBC-RFTR-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "01a73776-df1f-453e-a7c0-9336920c289a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C3646929"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f36c90fd-5059-413c-b0aa-536272d2e78d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "XINGLIGHT"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2a7261fe-fe69-4bfd-8338-0364c8fc5c08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "XL-1615RGBC-RF"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "473e3b84-8f4a-4fd7-9ea1-6c81c54804ae")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cc24890c-f04c-4d59-a868-c65e8489ed82")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -325,7 +390,7 @@
 			(uuid "542e00fd-8048-4191-82ac-618dacbff501")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2.2 90)
+			(at -0.7 0.65 90)
 			(layer "F.Fab")
 			(uuid "ad8375f0-bc83-448f-a870-43e8e0f0900b")
 			(effects
@@ -401,7 +466,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 0 1.16 270)
 			(layer "F.Fab")
 			(uuid "444d2016-ea2d-4a68-8bcd-49e75e798ba6")
@@ -412,7 +477,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -424,7 +489,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -432,6 +497,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "1276-1001-1-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d60ea1fe-1939-4643-a712-93def7b10b6f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C60474"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "10ceb37f-5871-4e8e-a063-8e4b1d1b1b9a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "Samsung Electro-Mechanics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a4cbeca-c2d4-465f-bc39-d47becc38bfa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "efac1ff9-1459-44b6-9a87-f18125abe39a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1712bb59-0119-446d-8b82-8c452d8dc672")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -544,7 +674,7 @@
 			)
 		)
 		(property "Value" "WS2812B-2020"
-			(at 2.15 12.55 90)
+			(at -8.7 0 90)
 			(layer "F.Fab")
 			(uuid "93cd1bbc-1ad6-4631-ba9e-b5502725fd60")
 			(effects
@@ -554,7 +684,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -576,6 +706,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "5962-XL-1615RGBC-RFTR-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "64cadaf9-b2ae-453f-9702-ca1a31b32d9d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C3646929"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef64b238-a473-4be7-83b1-7b7f7896de3c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "XINGLIGHT"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e014c420-eb32-403f-843e-6362d03b291c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "XL-1615RGBC-RF"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9dca8c42-be73-41c2-99e3-f00c56b95ee5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb42c77a-e242-488b-8992-ce82c7411788")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -699,7 +894,7 @@
 			(uuid "dbeb331c-3638-4321-8381-172e66dfc53e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -1.7 90)
+			(at -0.7 0.4 90)
 			(layer "F.Fab")
 			(uuid "8f065b6d-5fd9-47f8-b4b3-f4c3c033e24c")
 			(effects
@@ -777,7 +972,7 @@
 			)
 		)
 		(property "Value" "WS2812B-2020"
-			(at 1.95 3.55 90)
+			(at -8.6 -2.7 90)
 			(layer "F.Fab")
 			(uuid "d6ff5c5d-ae28-49fd-ba71-4959e5336220")
 			(effects
@@ -787,7 +982,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -809,6 +1004,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "5962-XL-1615RGBC-RFTR-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "34944946-2177-4cda-939e-a0b2a27349c9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C3646929"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "90b123d0-9ee2-437f-b059-5daea7105aa7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "XINGLIGHT"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "882057ab-d721-4c86-bcbb-3023160b9bcc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "XL-1615RGBC-RF"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a0280a5-a83e-40c6-b06d-e97bd2c55b92")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "127d2792-57b6-4e3d-9e5a-622e0f4f98da")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -932,7 +1192,7 @@
 			(uuid "25d896e3-dc75-4a44-9b4f-9de938c76054")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2.2 90)
+			(at -0.7 0.65 90)
 			(layer "F.Fab")
 			(uuid "7c53cff6-70d5-4837-bedf-1ce7119dde32")
 			(effects
@@ -1008,7 +1268,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 0 1.16 270)
 			(layer "F.Fab")
 			(uuid "a1fbe6f9-a2db-4436-84a1-331aa9cdcb80")
@@ -1019,7 +1279,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -1031,7 +1291,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -1039,6 +1299,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "1276-1001-1-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9911880c-9902-4ba0-b9ac-25f275c552db")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C60474"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "def0857c-675d-4eea-86a4-fe31d18e6d99")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "Samsung Electro-Mechanics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f34118f7-15d2-4441-af6b-592b5316963e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "def8085a-ee17-41b7-838e-bad11e5f7dc8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "11e9be7f-be8b-44a5-84bc-27056c01cce3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -1149,7 +1474,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "100n"
 			(at 0 1.16 270)
 			(layer "F.Fab")
 			(uuid "b644aa75-e4be-4389-addf-81c8b20f0bea")
@@ -1160,7 +1485,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -1172,7 +1497,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -1180,6 +1505,71 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "DKPN" "1276-1001-1-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c9feb900-ef06-4d6b-8498-5039910d54c3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC PN" "C60474"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "00a7c035-632c-4793-a0c7-24914bbe4758")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MF" "Samsung Electro-Mechanics"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9346eee6-f501-4788-876f-983b8b96c68e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a0a9365-e27f-4431-9743-4b6a94d6206e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5af23704-a8bd-406d-bc49-76ac3883155f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -1291,7 +1681,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "500"
+		(property "Value" "470"
 			(at 0 -1.17 0)
 			(layer "B.Fab")
 			(uuid "8acfb2a7-e241-43e8-802e-a3d765326a13")
@@ -1303,7 +1693,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://yageogroup.com/content/datasheet/asset/file/PYU-AC_51_ROHS_L"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -1316,7 +1706,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "470Ω 50V Thick Film Resistor 62.5mW ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount RoHS"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -1324,6 +1714,76 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "DKPN" "YAG3489TR-ND"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c5362c2a-724d-42d7-bd85-d92820fefe1c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "LCSC PN" "C227095"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ee398c9e-65d0-4011-b90e-c8c4f98ac3fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MF" "YAGEO"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2c6e44f3-6582-4a84-a750-71e2218a6d4e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "AC0402FR-07470RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "646a60c7-40ef-4506-a2af-be22ba9ba8a7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Sim.Enable" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6fbbc4ce-0d23-4520-beb5-ccc6576f917e")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -1440,6 +1900,7 @@
 		(property "Value" "Conn_01x03_Pin"
 			(at -0.29 -4.25 90)
 			(layer "B.Fab")
+			(hide yes)
 			(uuid "4845e0a7-36b8-4b01-82b1-7c9cd0a24428")
 			(effects
 				(font
@@ -1475,11 +1936,25 @@
 				(justify mirror)
 			)
 		)
+		(property "Sim.Enable" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7442d926-9552-43ee-8a08-b3ab961e0538")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/5350021f-8642-4cb6-9b29-f6ee0e87714d")
 		(sheetname "/")
 		(sheetfile "LED.kicad_sch")
-		(attr through_hole dnp)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -1.1 -2.81)
 			(end 0.52 -2.81)

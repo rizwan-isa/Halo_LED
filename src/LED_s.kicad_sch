@@ -2560,7 +2560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 134.62 67.31 0)
 			(effects
 				(font
@@ -2675,7 +2675,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 157.48 67.31 0)
 			(effects
 				(font
@@ -3399,7 +3399,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL05B104KO5NNNC.pdf"
 			(at 146.05 67.31 0)
 			(effects
 				(font
