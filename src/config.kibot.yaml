@@ -1,0 +1,27 @@
+# Kibot entry point, global configuration script.
+#
+# Example: https://github.com/INTI-CMNB/kibot_variants_arduprog/blob/master/ardu_prog.kibot.yaml
+kibot:
+  version: 1
+
+preflight:
+  update_pcb_characteristics: true
+  update_stackup: true
+  check_zone_fills: true
+
+  drc: true
+  erc: true
+  update_xml: true
+
+# For options on global variables check out
+# https://kibot.readthedocs.io/en/master/configuration/global.html#all-available-global-options
+global:
+  output: "%f_%r_%i.%x"
+  field_lcsc_part: "LCSC PN" # ← Change this if your LCSC field has a different name
+
+# This imports the KiBot scripts that actually do all the generation.
+import:
+  - kibot/test.yaml
+  - file: JLCPCB
+    definitions:
+      _KIBOT_POS_ONLY_SMD: false

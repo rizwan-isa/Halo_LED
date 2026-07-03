@@ -1,0 +1,33 @@
+# JLCPCB Position / CPL file - Clean version
+kibot:
+  version: 1
+
+globals:
+  field_lcsc_part: "LCSC PN"
+
+outputs:
+  - name: jlcpcb_position
+    comment: JLCPCB compatible CPL file (custom output to JLCPCBY folder)
+    type: position
+    dir: JLCPCBY
+    options:
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      only_smd: false
+      # We do header/rotation fixes in the workflow Python script instead
+      columns:
+        - id: Ref
+          name: Designator
+        - id: Val
+          name: Val
+        - id: Package
+          name: Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer

@@ -1,0 +1,31 @@
+# KiBot NTML Bom Output - RI 10/09/2024
+kibot:
+  version: 1
+
+outputs:
+  - name: generic_bom_html
+    comment: Generic Bill of Materials in HTML format - KiBOM
+    type: bom
+    dir: BoMs
+    options:
+      format: HTML
+      group_fields: ["Value", "Footprint", "MPN"]
+      columns:
+        - Row
+        - Quantity Per PCB
+        - References
+        - Value
+        - MPN
+        - Description
+        - DKPN
+        - SearchLink
+        - Datasheet
+        - LCSC PN
+      html:
+        title: "%f BOM"
+        datasheet_as_link: "Datasheet"
+        digikey_link: "DKPN"
+        style: "modern-blue"
+        logo: "ES_Logo_V2.svg"
+        logo_width: 250
+      count_smd_tht: true

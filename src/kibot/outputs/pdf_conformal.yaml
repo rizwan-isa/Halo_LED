@@ -1,0 +1,34 @@
+# Conformal PDF Generation
+
+kibot:
+  version: 1
+
+outputs:
+  - name: Conformal_pdf
+    comment: "PDF for the PCBA Conformal Coating Instructions"
+    type: pcb_print
+    dir: "./"
+    options:
+      scaling: 1.5
+      output: "%f_%r_conformal.%x"
+      pages:
+        #"F-Conformal-Coating"
+        - layers:
+            - layer: Edge.Cuts
+              color: "#FF8000"
+            - layer: F.Cu
+              color: "#B3FFB3"
+            - layer: F.Paste
+              color: "#848484FF"
+            - layer: F.Silkscreen
+              color: "#626262"
+            - layer: F.Courtyard
+              color: "#000080"
+            - layer: F.Conformal
+              color: "#FF0000FF"
+
+          mirror: false
+          tent_vias: true
+          holes_color: "#EAEAEA"
+          scaling: 1
+          sheet: "F.Conformal | Conformal Coating Instructions"

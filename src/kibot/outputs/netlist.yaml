@@ -1,0 +1,14 @@
+# Netlist Files Generation - RI 05/09/2024
+# IPC-D-356 Netlistfile generation useful for board testing.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/netlist.html
+kibot:
+  version: 1
+
+outputs:
+  # Generate Netlist Filles
+  - name: netlist
+    comment: Generate netlist files.
+    type: netlist
+    dir: netlist
+    options:
+      format: "ipc"

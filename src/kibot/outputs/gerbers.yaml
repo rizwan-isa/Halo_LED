@@ -1,0 +1,16 @@
+# PCB Gerber Files Generation - RI 05/09/2024
+# No part number or bom details included meant for PCB production like JLCPCB.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/gerber.html
+kibot:
+  version: 1
+
+outputs:
+  #Generate PCB Only Production Datapack
+  #Exclude bom and part number information
+  - name: gerbers_pcb_only
+    comment: Gerbers that are to be sent to the PCB manufacturer.
+    type: gerber
+    dir: gerbers
+    layers: all
+    options:
+      plot_footprint_values: false

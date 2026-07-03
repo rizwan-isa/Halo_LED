@@ -1,0 +1,17 @@
+# It might be simpler to just not include the component value data in any of the gerber files
+# this approach would eliminate the need of two gerber file sets
+# Full Gerber Files Generation - RI 05/09/2024
+# Part number details included meant for pcb and assembly production.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/gerber.html
+kibot:
+  version: 1
+
+outputs:
+  # Generate Full Production Datapack
+  - name: gerbers_full
+    comment: Full Gerber Files contain extra info like Part Number
+    type: gerber
+    dir: gerbers_full
+    layers: all
+    # options:
+    #   exclude_edge_layer: true

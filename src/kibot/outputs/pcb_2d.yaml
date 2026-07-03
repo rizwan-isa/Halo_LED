@@ -1,0 +1,42 @@
+# 2D PCB Generation - RI 05/09/2024
+# Exports the PCB as a 2D model.
+# For details on 3D configuring see https://kibot.readthedocs.io/en/master/configuration/outputs/pcbdraw.html
+kibot:
+  version: 1
+
+outputs:
+  - name: 2D_PCB_Generation_Top_SVG
+    comment: Generate 2D Top View of the PCB in SVG format.
+    type: pcbdraw
+    dir: "2D"
+    options:
+      format: svg
+      #show_components: all
+
+  - name: 2D_PCB_Generation_Bottom_SVG
+    comment: Generate 2D Bottom View of the PCB in SVG format.
+    type: pcbdraw
+    dir: "2D"
+    options:
+      bottom: true
+      format: svg
+      #show_components: all
+
+  - name: 2D_PCB_Generation_Top_PNG
+    comment: Generate 2D Top View of the PCB in PNG format.
+    type: pcbdraw
+    dir: "2D"
+    options:
+      format: png
+      dpi: 900
+      margin: 3
+
+  - name: 2D_PCB_Generation_Bottom_PNG
+    comment: Generate 2D Bottom View of the PCB in PNG format.
+    type: pcbdraw
+    dir: "2D"
+    options:
+      bottom: true
+      format: png
+      dpi: 900
+      margin: 3

@@ -1,0 +1,16 @@
+# Schematic PDF Generation - RI 04/09/2024
+# For details on Schematic PDF configuration see https://kibot.readthedocs.io/en/master/configuration/outputs/pdf_sch_print.html
+kibot:
+  version: 1
+
+outputs:
+  # PDF Schematic Print (Portable Document Format):
+  # This is the main format to document your schematic.
+  # This output is what you get from the 'File/Plot' menu in eeschema.
+  # If you use custom fonts and/or colors please consult the `resources_dir` global variable.
+  - name: "pdf_sch_print_example"
+    comment: "Exports the schematic to the most common exchange format. Suitable for printing."
+    type: "pdf_sch_print"
+    dir: "./"
+    #options:
+    # all default options are used so removed for simplicity if a non default option is needed it should be added in here

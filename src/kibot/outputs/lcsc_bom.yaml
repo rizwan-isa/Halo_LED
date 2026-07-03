@@ -1,0 +1,35 @@
+kibot:
+  version: 1
+
+outputs:
+  - name: jlcpcb_bom
+    comment: Clean JLCPCB BOM with proper grouping
+    type: bom
+    dir: JLCPCBY
+    options:
+      format: CSV
+      append_project_info: false # remove project info from the bottom of the bom file
+      # Group by value + footprint + LCSC part number
+      group_fields:
+        ["MPN", "Footprint", "LCSC PN", "Value", "DKPN", "Description"]
+      columns:
+        - field: Reference
+          name: Designator
+        - field: MPN
+          name: Comment # JLCPCB often uses this field
+        - field: Footprint
+          name: Footprint
+        - field: "LCSC PN"
+          name: "LCSC Part #"
+        - field: "Quantity Per PCB"
+          name: "Quantity Per PCB"
+        - field: Value
+          name: Value
+        - field: MF
+          name: Manufacturer
+        - field: DKPN
+          name: DKPN
+        - field: Description
+          name: Description
+      count_smd_tht: true
+      exclude_filter: "_mechanical"

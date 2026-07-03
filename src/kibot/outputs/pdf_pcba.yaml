@@ -1,0 +1,71 @@
+# Assembly PDF Generation - RI 04/09/2024
+
+kibot:
+  version: 1
+
+outputs:
+  - name: print_pdf
+    comment: "PDF for the PCB"
+    type: pcb_print
+    dir: "./"
+    options:
+      # moving does not work for some reason
+      #autoscale_margin_x: 300
+      #autoscale_margin_y: -900
+      scaling: 2.0
+
+      pages:
+        #"Colored-TOP"
+        - layers:
+            - layer: F.Cu
+              color: "#B3FFB3"
+            - layer: F.Paste
+              color: "#FF8A8A"
+            - layer: F.Silkscreen
+              color: "#626262"
+            - layer: F.Fab
+              color: "#000080"
+            - layer: Edge.Cuts
+              color: "#FF8000"
+            - layer: User.Eco1
+              color: "#000080"
+          mirror: false
+          tent_vias: true
+          #sheet_reference_color: '#000080'
+          holes_color: "#EAEAEA"
+          sheet: "Colored-TOP"
+
+        #"Colored-BOT"
+        - layers:
+            - layer: B.Cu
+              color: "#B3FFB3"
+            - layer: B.Paste
+              color: "#FF8A8A"
+            - layer: B.Silkscreen
+              color: "#626262"
+            - layer: B.Fab
+              color: "#000080"
+            - layer: Edge.Cuts
+              color: "#FF8000"
+          mirror: true
+          tent_vias: true
+          holes_color: "#EAEAEA"
+          # would be nice to mirror on y and shift the board up but it's not supported at this time
+          #autoscale_margin_x: 500
+          #autoscale_margin_y: 1500
+          sheet: "Colored-Bottom"
+
+        #"User-Comments"
+        - layers:
+            - layer: User.Comments
+              color: "#000000"
+            - layer: Edge.Cuts
+              color: "#FF8000"
+          mirror: false
+          #tent_vias: true
+          #holes_color: '#EAEAEA'
+          # would be nice to mirror on y and shift the board up but it's not supported at this time
+          #autoscale_margin_x: 500
+          #autoscale_margin_y: 1500
+          scaling: 1
+          sheet: "User-Comments | Board Details"

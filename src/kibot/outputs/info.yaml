@@ -1,0 +1,17 @@
+# KiBot Run Information - RI 03/09/2024
+kibot:
+  version: 1
+
+outputs:
+  # Info:
+  # It can be used to know more about the environment used to generate the files.
+  # Please don't rely on the way things are reported, its content could change,
+  # adding or removing information
+  - name: "run_info"
+    comment: "Records information about the current run."
+    type: "info"
+    dir: "./"
+    options:
+      # [string='names'] [names,none,full] List environment variables.
+      # IMPORTANT: Don't use `full` unless you know you are not leaking sensitive information
+      environment: "names"

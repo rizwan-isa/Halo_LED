@@ -1,0 +1,17 @@
+# Drill file generation. - RI 05/09/2024
+# This script generates the required drill files and report.
+# This is to be packed togheter with the gerber files and used for PCB manufacturing.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/gerb_drill.html
+kibot:
+  version: 1
+
+outputs:
+  #Generate Drill Filles
+  - name: drill
+    comment: Generate drill files.
+    type: gerb_drill
+    dir: drill
+    options:
+      map: gerber
+      report:
+        filename: "%f_%r_%i.%x"

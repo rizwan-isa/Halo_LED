@@ -1,0 +1,23 @@
+# KiCad project archivation. - RI 06/09/2024
+# This script archives the Kicad Project.
+# These are only the files needed to open the KiCad Project on another computer.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/compress.html#archiver-files-compressor
+kibot:
+  version: 1
+
+outputs:
+  #KiCad Project Archivation after ERC and DRC
+  - name: archive
+    comment: Archive the KiCad project before we start manipulating it.
+    type: compress
+    priority: 74
+    dir: archive
+    options:
+      output: "%f_%r_KiCad_Project.%x"
+      files:
+        - from_cwd: true
+          source: "src/*.kicad*"
+        - from_cwd: true
+          source: "src/*.pretty*/*"
+        - from_cwd: true
+          source: "src/*-table*"

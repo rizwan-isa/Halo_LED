@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/LED/src/LED.kicad_sch</source>
+    <date>2026-07-03T20:38:11+0000</date>
+    <tool>Eeschema 9.0.7+1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>LED</title>
+        <company>Company: Engineering Services LTD</company>
+        <rev/>
+        <date>2026-07-03 21:14:48</date>
+        <source>LED.kicad_sch</source>
+        <comment number="1" value="Drawn by Rizwan Isa"/>
+        <comment number="2" value="Customer: Serenyc"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/">
+      <title_block>
+        <title>LED</title>
+        <company>Company: Engineering Services LTD</company>
+        <rev/>
+        <date>2026-07-03 21:14:48</date>
+        <source>LED_s.kicad_sch</source>
+        <comment number="1" value="Drawn by Rizwan Isa"/>
+        <comment number="2" value="Customer: Serenyc"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="G1">
+      <value>ES_LOGO</value>
+      <footprint>01_es_hw_footprints:ES_logo_30mm_v1</footprint>
+      <datasheet>https://www.upwork.com/freelancers/rizwanisa</datasheet>
+      <description>Company Logo</description>
+      <fields>
+        <field name="Profile">https://www.linkedin.com/in/rizwan-isa-a6351358/</field>
+        <field name="ConMatePN"/>
+        <field name="ConMatePN_DK_SL"/>
+        <field name="Notes"/>
+        <field name="Tol"/>
+        <field name="Alternative"/>
+        <field name="Current"/>
+        <field name="DKLink"/>
+        <field name="DKPN"/>
+        <field name="MF"/>
+        <field name="MPN"/>
+        <field name="Name"/>
+        <field name="Power"/>
+        <field name="SearchLink"/>
+        <field name="Voltage"/>
+        <field name="LCSC PN"/>
+        <field name="Footprint">01_es_hw_footprints:ES_logo_30mm_v1</field>
+        <field name="Datasheet">https://www.upwork.com/freelancers/rizwanisa</field>
+        <field name="Description">Company Logo</field>
+      </fields>
+      <libsource lib="01_LED_schematic_symbols" part="ES_LOGO_30mm_V1" description="Company Logo"/>
+      <property name="Profile" value="https://www.linkedin.com/in/rizwan-isa-a6351358/"/>
+      <property name="ConMatePN" value=""/>
+      <property name="ConMatePN_DK_SL" value=""/>
+      <property name="Notes" value=""/>
+      <property name="Tol" value=""/>
+      <property name="Alternative" value=""/>
+      <property name="Current" value=""/>
+      <property name="DKLink" value=""/>
+      <property name="DKPN" value=""/>
+      <property name="MF" value=""/>
+      <property name="MPN" value=""/>
+      <property name="Name" value=""/>
+      <property name="Power" value=""/>
+      <property name="SearchLink" value=""/>
+      <property name="Voltage" value=""/>
+      <property name="LCSC PN" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cd52affd-8cfe-4465-b9a4-b4f190a0ebe2</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_01x03_Pin</value>
+      <footprint>Connector_PinSocket_1.00mm:PinSocket_1x03_P1.00mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <description>Generic connector, single row, 01x03, script generated</description>
+      <fields>
+        <field name="Footprint">Connector_PinSocket_1.00mm:PinSocket_1x03_P1.00mm_Vertical</field>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x03_Pin" description="Generic connector, single row, 01x03, script generated"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5350021f-8642-4cb6-9b29-f6ee0e87714d</tstamps>
+    </comp>
+    <comp ref="C1">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</datasheet>
+      <description>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</description>
+      <fields>
+        <field name="DKPN">1276-1001-1-ND</field>
+        <field name="LCSC PN">C60474</field>
+        <field name="MF">Samsung Electro-Mechanics</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+        <field name="Description">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="DKPN" value="1276-1001-1-ND"/>
+      <property name="LCSC PN" value="C60474"/>
+      <property name="MF" value="Samsung Electro-Mechanics"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>27f7d635-d965-4bdb-a1f0-0933b350733e</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</datasheet>
+      <description>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</description>
+      <fields>
+        <field name="DKPN">1276-1001-1-ND</field>
+        <field name="LCSC PN">C60474</field>
+        <field name="MF">Samsung Electro-Mechanics</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+        <field name="Description">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="DKPN" value="1276-1001-1-ND"/>
+      <property name="LCSC PN" value="C60474"/>
+      <property name="MF" value="Samsung Electro-Mechanics"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>d15222f5-3ded-4e74-89dd-df50b299c06c</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</datasheet>
+      <description>0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</description>
+      <fields>
+        <field name="DKPN">1276-1001-1-ND</field>
+        <field name="LCSC PN">C60474</field>
+        <field name="MF">Samsung Electro-Mechanics</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
+        <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
+        <field name="Datasheet">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+        <field name="Description">0.1 µF ±10% 16V Ceramic Capacitor X7R 0402 (1005 Metric)</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="DKPN" value="1276-1001-1-ND"/>
+      <property name="LCSC PN" value="C60474"/>
+      <property name="MF" value="Samsung Electro-Mechanics"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>5b429b2f-6d66-48fd-bcc3-dfccdb9c2de8</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>WS2812B-2020</value>
+      <footprint>01_es_hw_footprints:LED_WS2812B-1.8X2MM</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</datasheet>
+      <description>RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</description>
+      <fields>
+        <field name="DKPN">5962-XL-1615RGBC-RFTR-ND</field>
+        <field name="LCSC PN">C3646929</field>
+        <field name="MF">XINGLIGHT</field>
+        <field name="MPN">XL-1615RGBC-RF</field>
+        <field name="Footprint">01_es_hw_footprints:LED_WS2812B-1.8X2MM</field>
+        <field name="Datasheet">https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</field>
+        <field name="Description">RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B-2020" description="RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"/>
+      <property name="DKPN" value="5962-XL-1615RGBC-RFTR-ND"/>
+      <property name="LCSC PN" value="C3646929"/>
+      <property name="MF" value="XINGLIGHT"/>
+      <property name="MPN" value="XL-1615RGBC-RF"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="RGB LED NeoPixel Nano addressable"/>
+      <property name="ki_fp_filters" value="LED*WS2812*-2020_PLCC4*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>72681b76-5a73-476c-bf7e-f2274ca60ac8</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>WS2812B-2020</value>
+      <footprint>01_es_hw_footprints:LED_WS2812B-1.8X2MM</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</datasheet>
+      <description>RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</description>
+      <fields>
+        <field name="DKPN">5962-XL-1615RGBC-RFTR-ND</field>
+        <field name="LCSC PN">C3646929</field>
+        <field name="MF">XINGLIGHT</field>
+        <field name="MPN">XL-1615RGBC-RF</field>
+        <field name="Footprint">01_es_hw_footprints:LED_WS2812B-1.8X2MM</field>
+        <field name="Datasheet">https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</field>
+        <field name="Description">RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B-2020" description="RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"/>
+      <property name="DKPN" value="5962-XL-1615RGBC-RFTR-ND"/>
+      <property name="LCSC PN" value="C3646929"/>
+      <property name="MF" value="XINGLIGHT"/>
+      <property name="MPN" value="XL-1615RGBC-RF"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="RGB LED NeoPixel Nano addressable"/>
+      <property name="ki_fp_filters" value="LED*WS2812*-2020_PLCC4*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>ca67c20d-3dc8-42ee-b8fe-74ea2f0f74f6</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>WS2812B-2020</value>
+      <footprint>01_es_hw_footprints:LED_WS2812B-1.8X2MM</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</datasheet>
+      <description>RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</description>
+      <fields>
+        <field name="DKPN">5962-XL-1615RGBC-RFTR-ND</field>
+        <field name="LCSC PN">C3646929</field>
+        <field name="MF">XINGLIGHT</field>
+        <field name="MPN">XL-1615RGBC-RF</field>
+        <field name="Footprint">01_es_hw_footprints:LED_WS2812B-1.8X2MM</field>
+        <field name="Datasheet">https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8903/XL-0807RGBC-WS2812B.pdf</field>
+        <field name="Description">RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</field>
+      </fields>
+      <libsource lib="LED" part="WS2812B-2020" description="RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"/>
+      <property name="DKPN" value="5962-XL-1615RGBC-RFTR-ND"/>
+      <property name="LCSC PN" value="C3646929"/>
+      <property name="MF" value="XINGLIGHT"/>
+      <property name="MPN" value="XL-1615RGBC-RF"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="RGB LED NeoPixel Nano addressable"/>
+      <property name="ki_fp_filters" value="LED*WS2812*-2020_PLCC4*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>c75ea54d-af6e-4f9e-a8d4-acb32312fdc0</tstamps>
+    </comp>
+    <comp ref="G2">
+      <value>ES_LOGO</value>
+      <footprint>01_es_hw_footprints:ES_logo_30mm_v1</footprint>
+      <datasheet>https://www.upwork.com/freelancers/rizwanisa</datasheet>
+      <description>Company Logo</description>
+      <fields>
+        <field name="Profile">https://www.linkedin.com/in/rizwan-isa-a6351358/</field>
+        <field name="ConMatePN"/>
+        <field name="ConMatePN_DK_SL"/>
+        <field name="Notes"/>
+        <field name="Tol"/>
+        <field name="Alternative"/>
+        <field name="Current"/>
+        <field name="DKLink"/>
+        <field name="DKPN"/>
+        <field name="MF"/>
+        <field name="MPN"/>
+        <field name="Name"/>
+        <field name="Power"/>
+        <field name="SearchLink"/>
+        <field name="Voltage"/>
+        <field name="LCSC PN"/>
+        <field name="Footprint">01_es_hw_footprints:ES_logo_30mm_v1</field>
+        <field name="Datasheet">https://www.upwork.com/freelancers/rizwanisa</field>
+        <field name="Description">Company Logo</field>
+      </fields>
+      <libsource lib="01_LED_schematic_symbols" part="ES_LOGO_30mm_V1" description="Company Logo"/>
+      <property name="Profile" value="https://www.linkedin.com/in/rizwan-isa-a6351358/"/>
+      <property name="ConMatePN" value=""/>
+      <property name="ConMatePN_DK_SL" value=""/>
+      <property name="Notes" value=""/>
+      <property name="Tol" value=""/>
+      <property name="Alternative" value=""/>
+      <property name="Current" value=""/>
+      <property name="DKLink" value=""/>
+      <property name="DKPN" value=""/>
+      <property name="MF" value=""/>
+      <property name="MPN" value=""/>
+      <property name="Name" value=""/>
+      <property name="Power" value=""/>
+      <property name="SearchLink" value=""/>
+      <property name="Voltage" value=""/>
+      <property name="LCSC PN" value=""/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>15108462-b032-4b11-b241-f239f336618b</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>470</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://yageogroup.com/content/datasheet/asset/file/PYU-AC_51_ROHS_L</datasheet>
+      <description>470Ω 50V Thick Film Resistor 62.5mW ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount RoHS</description>
+      <fields>
+        <field name="DKPN">YAG3489TR-ND</field>
+        <field name="LCSC PN">C227095</field>
+        <field name="MF">YAGEO</field>
+        <field name="MPN">AC0402FR-07470RL</field>
+        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Datasheet">https://yageogroup.com/content/datasheet/asset/file/PYU-AC_51_ROHS_L</field>
+        <field name="Description">470Ω 50V Thick Film Resistor 62.5mW ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount RoHS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="DKPN" value="YAG3489TR-ND"/>
+      <property name="LCSC PN" value="C227095"/>
+      <property name="MF" value="YAGEO"/>
+      <property name="MPN" value="AC0402FR-07470RL"/>
+      <property name="Sheetname" value="LED"/>
+      <property name="Sheetfile" value="LED_s.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/LED/" tstamps="/955abe00-ee71-49b1-b40f-5f661496da90/"/>
+      <tstamps>60873d6f-339c-4814-a23a-5157fad40395</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="01_LED_schematic_symbols" part="ES_LOGO_30mm_V1">
+      <description>Company Logo</description>
+      <docs>https://www.upwork.com/freelancers/rizwanisa</docs>
+      <fields>
+        <field name="Reference">G1</field>
+        <field name="Value">ES_LOGO</field>
+        <field name="Footprint">01_es_hw_footprints:ES_logo_30mm_v1</field>
+        <field name="Datasheet">https://www.upwork.com/freelancers/rizwanisa</field>
+        <field name="Description">Company Logo</field>
+        <field name="Profile">https://www.linkedin.com/in/rizwan-isa-a6351358/</field>
+      </fields>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x03_Pin">
+      <description>Generic connector, single row, 01x03, script generated</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03_Pin</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="LED" part="WS2812B-2020">
+      <description>RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</description>
+      <docs>https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf</docs>
+      <footprints>
+        <fp>LED*WS2812*-2020_PLCC4*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">WS2812B-2020</field>
+        <field name="Footprint">LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm</field>
+        <field name="Datasheet">https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf</field>
+        <field name="Description">RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="DOUT" type="output"/>
+        <pin num="2" name="VSS" type="power_in"/>
+        <pin num="3" name="DIN" type="input"/>
+        <pin num="4" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="01_LED_schematic_symbols">
+      <uri>/Users/rizwanisa/EngineeringServices/02_Freelance/Serenyc/LED/src/symbols/LED_schematic_symbols.kicad_sym</uri>
+    </library>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols/Device.kicad_sym</uri>
+    </library>
+    <library logical="LED">
+      <uri>/usr/share/kicad/symbols/LED.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+5V" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="D1" pin="4" pinfunction="VDD" pintype="power_in"/>
+      <node ref="D2" pin="4" pinfunction="VDD" pintype="power_in"/>
+      <node ref="D3" pin="4" pinfunction="VDD" pintype="power_in"/>
+      <node ref="J1" pin="3" pinfunction="Pin_3" pintype="passive"/>
+    </net>
+    <net code="2" name="/LED/LED_Data" class="Default">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="3" name="GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="VSS" pintype="power_in"/>
+      <node ref="D2" pin="2" pinfunction="VSS" pintype="power_in"/>
+      <node ref="D3" pin="2" pinfunction="VSS" pintype="power_in"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+    </net>
+    <net code="4" name="Net-(D1-DIN)" class="Default">
+      <node ref="D1" pin="3" pinfunction="DIN" pintype="input"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+    <net code="5" name="Net-(D1-DOUT)" class="Default">
+      <node ref="D1" pin="1" pinfunction="DOUT" pintype="output"/>
+      <node ref="D2" pin="3" pinfunction="DIN" pintype="input"/>
+    </net>
+    <net code="6" name="Net-(D2-DOUT)" class="Default">
+      <node ref="D2" pin="1" pinfunction="DOUT" pintype="output"/>
+      <node ref="D3" pin="3" pinfunction="DIN" pintype="input"/>
+    </net>
+    <net code="7" name="unconnected-(D3-DOUT-Pad1)" class="Default">
+      <node ref="D3" pin="1" pinfunction="DOUT" pintype="output+no_connect"/>
+    </net>
+  </nets>
+</export>

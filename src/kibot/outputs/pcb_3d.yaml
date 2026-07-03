@@ -1,0 +1,74 @@
+# 3D PCB Generation - RI 03/09/2024
+# For details on 3D configuring see https://kibot.readthedocs.io/en/master/configuration/outputs/render_3d.html
+kibot:
+  version: 1
+
+outputs:
+  - name: 3D_PCB_Generation_Top
+    comment: Generate 3D Top View of the PCB
+    type: render_3d
+    dir: "3D"
+    options:
+      #zoom: 9
+      # height: 2000
+      # width: 3200
+      zoom: 1
+      height: 1200
+      width: 1800
+      #ray_tracing: true
+      #auto_crop: true
+      orthographic: true
+      view: "top"
+      realistic: true
+      force_stackup_colors: true
+      show_adhesive: true
+
+  - name: 3D_PCB_Generation_Bottom
+    comment: Generate 3D Bottom View of the PCB
+    type: render_3d
+    dir: "3D"
+    options:
+      zoom: 1
+      height: 1200
+      width: 1800
+      #ray_tracing: true
+      orthographic: true
+      view: "bottom"
+      realistic: true
+      force_stackup_colors: true
+      show_adhesive: true
+
+  - name: 3D_PCB_Generation_TopAngle
+    comment: Generate 3D Top Angle View of the PCB
+    type: render_3d
+    dir: "3D"
+    options:
+      zoom: 1
+      height: 1600
+      width: 2100
+      rotate_x: 3
+      #rotate_y: 3
+      rotate_z: -2
+      ray_tracing: true
+      orthographic: true
+      view: "top"
+      realistic: true
+      force_stackup_colors: true
+      output: "%f_%r_%i_30deg.%x"
+      show_adhesive: true
+
+  # - name: basic_blender_export
+  #   comment: 3D view from top/30 deg/bottom (Blender)
+  #   type: blender_export
+  #   dir: 3D
+  #   options:
+  #     #pcb3d: _PCB2Blender_2_1
+  #     outputs:
+  #     - type: render
+  #     - type: blender
+  #     point_of_view:
+  #     - view: top
+  #     - rotate_x: 30
+  #       rotate_z: -20
+  #       file_id: _30deg
+  #     - view: bottom

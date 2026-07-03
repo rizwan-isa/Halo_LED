@@ -1,0 +1,17 @@
+# Full One-line CSV Bom Output - RI 03/09/2024
+kibot:
+  version: 1
+
+outputs:
+  - name: oneline_full_bom_csv
+    # For details on configuring see https://kibot.readthedocs.io/en/latest/configuration/outputs/bom.html
+    comment: Generic Bill of Materials in CSV format Oneline Full (all fields)
+    type: bom
+    dir: "BoMs"
+    options:
+      format: CSV
+      output: "%f_%r_%i_oneline_full.%x"
+      group_fields: []
+      #columns: [Row, Quantity Per PCB, Value, References, MPN, DKPN, DKLink, SearchLink, Description]
+      count_smd_tht: true
+      #exclude_filter: '_mechanical'

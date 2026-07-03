@@ -1,0 +1,41 @@
+# Test and Output Generation Yaml File. - RI 05/09/2024
+#
+# This script collects all outputs to be generated in independend yaml file.
+# Durring normal execution all outputs/yaml files will run in a random order.
+# Durring debug nonintrested files will be commented out thereofre only running a specifig output generation that is of interest.
+
+kibot:
+  version: 1
+
+import:
+  #- outputs/output_test.yaml
+  - outputs/archive_prj.yaml
+  - outputs/copy_prj.yaml
+  - outputs/bom_csv.yaml
+  - outputs/bom_full_csv.yaml
+  - outputs/bom_html.yaml
+  - outputs/drill.yaml
+  - outputs/gerbers_full.yaml
+  - outputs/gerbers.yaml
+  - outputs/info.yaml
+  - outputs/ibom_html.yaml
+  - outputs/netlist.yaml
+  - outputs/pcb_2d.yaml
+  - outputs/pcb_3d.yaml
+  - outputs/pdf_pcba.yaml
+  - outputs/pdf_conformal.yaml
+  - outputs/pdf_schematic.yaml
+  - outputs/position.yaml
+  # === NEW JLCPCB outputs ===
+  - outputs/lcsc_bom.yaml
+  #- outputs/jlcpcb_position.yaml #-now handled in the config.kibot.yaml JLCPCB template as our position and rotation is off
+
+outputs:
+  # adding or removing information
+  - name: "job_done"
+    # unfortunately the order of inport is not specified therefore
+    # outputs will be produced in a random order and
+    comment: The compilation is finished
+    type: info
+
+    #error: stop_here

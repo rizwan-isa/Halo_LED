@@ -1,0 +1,26 @@
+# Copy KiCad project. - RI 06/09/2024
+# This script copies the Kicad Project before manipulation and after checks succeded.
+# These are only the files needed to open the KiCad Project on another computer.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/copy_files.html
+kibot:
+  version: 1
+
+outputs:
+  #Copy KiCad Project after ERC and DRC
+  - name: copy_kicad_project
+    comment: Copy the Kicad Project so that we can open it from the output folder.
+    type: copy_files
+    priority: 75
+    dir: kicad_project
+    options:
+      output: "%f_%r_KiCad_Project.%x"
+      files:
+        - source_type: "files"
+          source: "src/*.kicad*"
+        - source_type: "files"
+          source: "src/*.pretty*/*"
+        - source_type: "files"
+          source: "src/*-table*"
+        # - source_type: 'out_files'
+        #   source: '**'
+        #   dest: kicad_project_out

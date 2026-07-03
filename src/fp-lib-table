@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "01_es_hw_footprints")(type "KiCad")(uri "${KIPRJMOD}/footprints/LED_pcb_footprints.pretty")(options "")(descr ""))
+)

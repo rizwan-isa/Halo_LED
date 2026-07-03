@@ -1,0 +1,16 @@
+# Position Files Generation - RI 05/09/2024
+# Generates the file with position information for the PCB components, used by the pick and place machine.
+# For details on available options check https://kibot.readthedocs.io/en/master/configuration/outputs/position.html
+kibot:
+  version: 1
+
+outputs:
+  # Generate Pick and Place Position Filles
+  - name: position
+    comment: Generate pick and place position files.
+    type: position
+    dir: position
+    options:
+      format: "CSV"
+      separate_files_for_front_and_back: false
+      columns: [Ref, PosX, PosY, Rot, Side]

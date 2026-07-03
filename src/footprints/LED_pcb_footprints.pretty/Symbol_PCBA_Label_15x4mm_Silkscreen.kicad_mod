@@ -1,0 +1,82 @@
+(footprint "Symbol_PCBA_Label_15x4mm_Silkscreen"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "High voltage symbol, in triangle, 8x7mm, copper layer")
+	(tags "warning graphic")
+	(property "Reference" "REF**"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "e72dabac-06f9-42b0-88c8-82d5145954d9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Symbol_PCBA_Label_15x4mm_Silkscreen"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "54b8a031-4c2b-434d-a773-e597a51a2b36")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bf47c9a3-e3f3-4977-91b8-368eee713f53")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bd14906b-9441-4283-a38c-9ae7fa47f7a2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+	(fp_rect
+		(start -4.6 -1.8)
+		(end 4.4 2.2)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "18a59af8-5ade-4c31-92e3-bbe61f9e8380")
+	)
+	(fp_text user "PCBA S/N"
+		(at 0 0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "9da2b26b-e5c5-46ad-acd5-a1f3b9a378be")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify bottom)
+		)
+	)
+	(embedded_fonts no)
+)
